@@ -1032,3 +1032,94 @@ footer {
         width: 100%;
     }
 }
+/* grapic */
+@media (max-width: 768px) {
+        .interactive-hero-box {
+            min-height: 280px !important; /* Smaller height on mobile */
+        }
+        .obj-laptop {
+            width: 85% !important; /* Make main image bigger on mobile */
+        }
+        .obj-mobile {
+            width: 35% !important; /* Make floating image readable */
+            right: 5% !important;
+            bottom: 20px !important;
+        }
+    }
+/* Glassmorphism Card Style */
+.glass-card-tech {
+    background: rgba(255, 255, 255, 0.05); /* Transparent White */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle Border */
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px); /* Frosted Glass Effect */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.glass-card-tech:hover {
+    background: rgba(255, 255, 255, 0.1); /* Lighter on hover */
+    transform: translateY(-5px); /* Float Up Effect */
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.glass-card-tech h4 {
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    display: inline-block;
+    color: #e6ebed;
+}
+/* White Card Style (High Contrast) */
+.white-card-tech {
+    background: #ffffff; /* Solid White Background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Strong shadow for depth */
+    transition: transform 0.3s ease;
+}
+
+.white-card-tech:hover {
+    transform: translateY(-5px);
+}
+
+.white-card-tech h4 {
+    color: #1a202c; /* Dark Black Heading */
+    border-bottom: 2px solid #edf2f7; /* Light grey divider */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.white-card-tech ul li {
+    color: #4a5568; /* Dark Grey Text for readability */
+    font-weight: 500;
+}
+/* Feature Box Styling */
+.feature-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+.feature-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-purple);
+}
+.feature-box h5 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+.feature-box p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
