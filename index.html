@@ -18,7 +18,7 @@
 
     <div id="canvas-container"></div>
 
-   <header>
+    <header>
         <div class="container navbar">
             
             <div class="logo" onclick="showPage('home')" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
@@ -50,8 +50,10 @@
                 <li><a class="nav-item" onclick="showPage('home')">Home</a></li>
                 <li><a class="nav-item" onclick="showPage('about')">About Us</a></li>
                 <li class="dropdown">
-                    <a class="nav-item" href="javascript:void(0)" onclick="toggleMobileDropdown(event)">Services ▾</a>
-                    <ul class="dropdown-menu" id="servicesDropdown">
+    <a class="nav-item dropdown-trigger" href="javascript:void(0)" onclick="toggleMobileDropdown(event)">
+        Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </a>
+    <ul class="dropdown-menu" id="servicesDropdown">
         <li><a class="dropdown-link" onclick="showPage('service-seo')"><i class="fas fa-bullhorn"></i> Influencer Marketing</a></li>
         <li><a class="dropdown-link" onclick="showPage('service-smm')"><i class="fas fa-share-alt"></i> Social Media Marketing</a></li>
         <li><a class="dropdown-link" onclick="showPage('service-ppc')"><i class="fas fa-ad"></i> PPC Ads</a></li>
@@ -59,7 +61,7 @@
         <li><a class="dropdown-link" onclick="showPage('service-graphic')"><i class="fas fa-paint-brush"></i> Graphic Design</a></li>
         <li><a class="dropdown-link" onclick="showPage('service-video')"><i class="fas fa-video"></i> Video Editing</a></li>
     </ul>
-                </li>
+</li>
                 <li><a class="nav-item" onclick="showPage('blog')">Blog</a></li>
                 <li><a class="nav-item" onclick="showPage('contact')">Contact Us</a></li>
             </ul>
@@ -68,7 +70,6 @@
             <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         </div>
     </header>
-
     <div id="home" class="page-section active-section">
         
         <section class="hero">
