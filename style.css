@@ -325,7 +325,7 @@ header {
 
 .client-marquee {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.05); /* Light grey background */
+    background-color: rgba(122, 122, 122, 0.05); /* Light grey background */
     padding: 20px 0;
     overflow: hidden;
     position: relative;
@@ -364,7 +364,7 @@ header {
     width: auto;
     /* This ensures a box appears even if image is broken */
     min-width: 40px; 
-    background: #ddd; /* Temporary grey background to debug */
+    background: #ddd; 
     border-radius: 5px;
     object-fit: contain;
 }
@@ -888,6 +888,7 @@ footer {
     .single-blog-hero { height: 300px; }
     .single-blog-overlay h1 { font-size: 26px; }
 }
+
 /* Ad Card Overlay Styles */
 .ad-overlay {
     position: fixed;
@@ -1123,3 +1124,4 @@ footer {
     color: #666;
     line-height: 1.4;
 }
+
