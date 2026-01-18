@@ -18,7 +18,7 @@
 
     <div id="canvas-container"></div>
 
-    <header>
+   <header>
         <div class="container navbar">
             
             <div class="logo" onclick="showPage('home')" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
@@ -70,6 +70,7 @@
             <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         </div>
     </header>
+
     <div id="home" class="page-section active-section">
         
         <section class="hero">
@@ -79,8 +80,9 @@
                     <h1>We Help Brands Get More Leads, Sales & Visibility</h1>
                     <p style="font-size: 18px; margin-bottom: 30px;">Data-driven digital marketing strategies that help businesses grow faster using SEO, Social Media & Paid Ads.</p>
                     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <button class="btn" onclick="showPage('contact')">👉 Get Free Strategy Call</button>
-                        <button class="btn-outline" onclick="showPage('contact')">👉 Free Digital Audit</button>
+<a href="form.html">
+    <button class="btn">👉 Get Free Strategy form</button>
+</a>                        <button class="btn-outline" onclick="showPage('contact')">👉 Free Digital Audit</button>
                     </div>
                 </div>
                 
@@ -112,7 +114,7 @@
             </div>
         </section>
         
-    <section class="client-marquee">
+       <section class="client-marquee">
     <div class="marquee-wrapper">
         <div class="marquee-track">
             
@@ -155,7 +157,8 @@
         </div>
     </div>
 </section>
-<section class="section-padding text-center">
+
+       <section class="section-padding text-center">
     <div class="container">
         <h2 class="text-purple" style="font-size: 32px; margin-bottom: 10px;">Our Best Digital Marketing Services</h2>
         <p style="margin-bottom: 50px; color: #666; max-width: 700px; margin-left:auto; margin-right:auto;">We focus on strategies that bring you high-quality leads and consistent sales.</p>
@@ -167,7 +170,7 @@
                 <h3>Influencer Marketing</h3>
                 <p>Rank on Google & get free organic leads.</p>
                 <div style="background: #f3e5f5; color: #7b1fa2; font-weight: 700; padding: 5px 10px; border-radius: 5px; display: inline-block; margin: 10px 0;">
-                     Starts at ₹3,000 - ₹5,000
+                    Starts at ₹3,000 - ₹5,000
                 </div>
                 <br>
                 <a class="text-orange" style="font-weight:bold;">Read More</a>
@@ -175,7 +178,7 @@
 
             <div class="service-card" onclick="showPage('service-smm')">
                 <img src="https://cdn-icons-png.flaticon.com/512/1968/1968666.png" class="service-icon">
-                <h3>Social Media Marketing</h3>
+                <h3>Social Media</h3>
                 <p>Instagram & Facebook Growth Strategy.</p>
                 <div style="background: #f3e5f5; color: #7b1fa2; font-weight: 700; padding: 5px 10px; border-radius: 5px; display: inline-block; margin: 10px 0;">
                     Starts at ₹8,000 <span style="font-size: 12px; font-weight: 400;">/ Month</span>
@@ -186,7 +189,7 @@
 
             <div class="service-card" onclick="showPage('service-web')">
                 <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" class="service-icon">
-                <h3>Website Development</h3>
+                <h3>Website Dev</h3>
                 <p>Fast, high-converting websites.</p>
                 <div style="background: #f3e5f5; color: #7b1fa2; font-weight: 700; padding: 5px 10px; border-radius: 5px; display: inline-block; margin: 10px 0;">
                     Starts at ₹7,500
@@ -197,10 +200,10 @@
 
             <div class="service-card" onclick="showPage('service-graphic')">
                 <img src="https://cdn-icons-png.flaticon.com/512/2972/2972131.png" class="service-icon">
-                <h3>Graphic Designing</h3>
+                <h3>Graphic Design</h3>
                 <p>Visuals that build brand identity.</p>
                 <div style="background: #f3e5f5; color: #7b1fa2; font-weight: 700; padding: 5px 10px; border-radius: 5px; display: inline-block; margin: 10px 0;">
-                     Starts at ₹3,000 <span style="font-size: 12px; font-weight: 400;">/ Package</span>
+                    Starts at ₹3,000 <span style="font-size: 12px; font-weight: 400;">/ Package</span>
                 </div>
                 <br>
                 <a class="text-orange" style="font-weight:bold;">Read More</a>
@@ -211,7 +214,7 @@
                 <h3>PPC Ads</h3>
                 <p>Google & Meta Ads for instant leads.</p>
                 <div style="background: #f3e5f5; color: #7b1fa2; font-weight: 700; padding: 5px 10px; border-radius: 5px; display: inline-block; margin: 10px 0;">
-                    Starts at ₹5,000 <span style="font-size: 12px; font-weight: 400;">/ Month</span>
+                    Starts at₹5,000 <span style="font-size: 12px; font-weight: 400;">/ Month</span>
                 </div>
                 <br>
                 <a class="text-orange" style="font-weight:bold;">Read More</a>
@@ -237,7 +240,7 @@
                 <div class="col-half">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
                          class="styled-img" 
-                         alt="Website Development."
+                         alt="Website Development"
                          style="box-shadow: -20px 20px 0px rgba(93, 46, 142, 0.1);"> </div>
                 <div class="col-half text-content">
                     <h5 class="text-purple" style="text-transform:uppercase; letter-spacing: 1px;">💻 Website Development</h5>
@@ -720,66 +723,82 @@
                         <p style="margin-top:10px; font-weight: 500;">Because people trust creators who feel genuine, not scripted.</p>
                     </div>
                 </div>
-          <div class="creator-showcase" style="margin-bottom: 50px;">
+    
+            <div class="creator-showcase" style="margin-bottom: 50px;">
     <h3 class="text-center text-orange" style="margin-bottom: 30px;">🎥 Creator Showcase</h3>
-    <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+   <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
 
-        <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
-            <video 
-                src="Ad_Creation_For_Website.mp4" 
-                autoplay loop muted playsinline
-                style="width:100%; height:100%; object-fit: cover; opacity: 0.7;">
-            </video>
-            <div style="position: absolute; bottom: 10px; left: 10px; color: white;">
-                <span style="font-size: 12px; background: red; padding: 2px 5px; border-radius: 3px;">Tech Review</span>
-                <h5 style="margin: 5px 0 0;">Tech</h5>
-            </div>
-            <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 40px; opacity: 0.8;"></i>
+    <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
+        <video 
+            src="v1.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            onmouseover="this.muted=false;" 
+            onmouseout="this.muted=true;"
+            style="width:100%; height:100%; object-fit: cover;">
+        </video>
+        <div style="position: absolute; bottom: 10px; left: 10px; color: white; pointer-events: none;">
+            <span style="font-size: 12px; background: red; padding: 2px 5px; border-radius: 3px;">Tech Review</span>
+            <h5 style="margin: 5px 0 0;">Tech</h5>
         </div>
-
-        <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
-            <video 
-                src="Video-138.mp4" 
-                autoplay loop muted playsinline
-                style="width:100%; height:100%; object-fit: cover; opacity: 0.7;">
-            </video>
-            <div style="position: absolute; bottom: 10px; left: 10px; color: white;">
-                <span style="font-size: 12px; background: #E1306C; padding: 2px 5px; border-radius: 3px;">Fashion</span>
-                <h5 style="margin: 5px 0 0;">Style Icon</h5>
-            </div>
-            <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 40px; opacity: 0.8;"></i>
-        </div>
-
-        <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
-            <video 
-                src="Video-488.mp4" 
-                autoplay loop muted playsinline
-                style="width:100%; height:100%; object-fit: cover; opacity: 0.7;">
-            </video>
-            <div style="position: absolute; bottom: 10px; left: 10px; color: white;">
-                <span style="font-size: 12px; background: #4267B2; padding: 2px 5px; border-radius: 3px;">Tech</span>
-                <h5 style="margin: 5px 0 0;">Finds</h5>
-            </div>
-            <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 40px; opacity: 0.8;"></i>
-        </div>
-
-         <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
-            <video 
-                src="Video-910.mp4" 
-                autoplay loop muted playsinline
-                style="width:100%; height:100%; object-fit: cover; opacity: 0.7;">
-            </video>
-            <div style="position: absolute; bottom: 10px; left: 10px; color: white;">
-                <span style="font-size: 12px; background: #4267B2; padding: 2px 5px; border-radius: 3px;">Vlog</span>
-                <h5 style="margin: 5px 0 0;">Video Finds</h5>
-            </div>
-            <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 40px; opacity: 0.8;"></i>
-        </div>
-
     </div>
+
+    <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
+        <video 
+            src="Video-138.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            onmouseover="this.muted=false;" 
+            onmouseout="this.muted=true;"
+            style="width:100%; height:100%; object-fit: cover;">
+        </video>
+        <div style="position: absolute; bottom: 10px; left: 10px; color: white; pointer-events: none;">
+            <span style="font-size: 12px; background: #E1306C; padding: 2px 5px; border-radius: 3px;">Fashion</span>
+            <h5 style="margin: 5px 0 0;">Style Icon</h5>
+        </div>
+    </div>
+
+    <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
+        <video 
+            src="Video-488.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            onmouseover="this.muted=false;" 
+            onmouseout="this.muted=true;"
+            style="width:100%; height:100%; object-fit: cover;">
+        </video>
+        <div style="position: absolute; bottom: 10px; left: 10px; color: white; pointer-events: none;">
+            <span style="font-size: 12px; background: #4267B2; padding: 2px 5px; border-radius: 3px;">Tech</span>
+            <h5 style="margin: 5px 0 0;">Finds</h5>
+        </div>
+    </div>
+
+    <div style="aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; position: relative;">
+        <video 
+            src="Video-910.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            onmouseover="this.muted=false;" 
+            onmouseout="this.muted=true;"
+            style="width:100%; height:100%; object-fit: cover;">
+        </video>
+        <div style="position: absolute; bottom: 10px; left: 10px; color: white; pointer-events: none;">
+            <span style="font-size: 12px; background: #4267B2; padding: 2px 5px; border-radius: 3px;">Vlog</span>
+            <h5 style="margin: 5px 0 0;">Video Finds</h5>
+        </div>
+    </div>
+
+</div>
     <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #777;">Real campaigns delivering real engagement.</p>
 </div>
-    
                 <div class="pricing-card" style="background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%); padding: 30px; border-radius: 15px; color: white; text-align: center; margin-bottom: 30px;">
                     <h3 style="color: white; margin-bottom: 20px;">Transparent & Flexible Pricing</h3>
                     <div class="row-flex" style="justify-content: center; gap: 40px;">
@@ -1292,11 +1311,32 @@
                  <p style="font-style: italic; font-weight: 600; color: #be185d; margin: 0;">"At OneX Media, our editing is designed to hook viewers in the first 3 seconds and keep them watching till the end."</p>
             </div>
         </div>
-        <div class="col-half">
-            <img src="https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?auto=format&fit=crop&w=800&q=80" 
-                 style="width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); object-fit: cover; height: 350px;" 
-                 alt="Professional Video Editing Timeline">
-        </div>
+   <div class="col-half">
+    <video 
+        id="hoverVideo"
+        src="videosection1.mp4" 
+        autoplay 
+        loop 
+        muted 
+        playsinline
+        style="width: 90%; height: 350px; object-fit: fill; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+    const videoElement = document.getElementById('hoverVideo');
+
+    // MOUSE ENTER: Unmute
+    videoElement.addEventListener('mouseenter', () => {
+        videoElement.muted = false;
+    });
+
+    // MOUSE LEAVE: Mute
+    videoElement.addEventListener('mouseleave', () => {
+        videoElement.muted = true;
+    });
+</script>
     </div>
 
     <div class="row-flex" style="align-items: stretch; margin-bottom: 50px; gap: 30px;">
@@ -1305,7 +1345,7 @@
              <div style="position: relative; z-index: 2; padding: 30px; color: white; height: 100%; display: flex; flex-direction: column; justify-content: center;">
                 <h3 style="color: #f6ad55; margin-bottom: 15px;"><i class="fas fa-cut"></i> Our Editing Approach</h3>
                 <p style="color: #e2e8f0;">Every edit is aligned with platform, audience, and purpose.</p>
-                <ul class="check-list" style="margin-top: 20px; color: #fff;">
+                <ul class="check-list" style="margin-top: 20px; color: #e2e8f0;">
                     <li style="margin-bottom: 10px;"><i class="fas fa-fire text-orange"></i> Latest Instagram & YouTube trends</li>
                     <li style="margin-bottom: 10px;"><i class="fas fa-mobile-alt text-orange"></i> Viral reel formats</li>
                     <li><i class="fas fa-chart-line text-orange"></i> Retention-focused cuts</li>
@@ -1725,11 +1765,15 @@
                 <p>+91 7880903718</p>
                 <div style="margin-top:10px;">
                     <i class="fab fa-facebook fa-lg" style="margin-right:10px;"></i>
- <a href="https://www.instagram.com/onexmedia__?igsh=b2VrdTRvMW9vdDd3" target="_blank" style="color: inherit; text-decoration: none;">
+
+                <a href="https://www.instagram.com/onexmedia__?igsh=b2VrdTRvMW9vdDd3" target="_blank" style="color: inherit; text-decoration: none;">
                   <i class="fab fa-instagram fa-lg" style="margin-right:10px;"></i>
-                                </a>                     <i class="fab fa-twitter fa-lg" style="margin-right:10px;"></i>
-<a href="https://www.linkedin.com/company/one-x-media2/" target="_blank" style="color: inherit; text-decoration: none;">
+                                </a>                    
+                 <i class="fab fa-twitter fa-lg" style="margin-right:10px;"></i>
+                <a href="https://www.linkedin.com/company/one-x-media2/" target="_blank" style="color: inherit; text-decoration: none;">
                  <i class="fab fa-linkedin fa-lg" style="margin-right:10px;"></i>                                </a>                    
+
+                                             
                 </div>
             </div>
             <div class="footer-col">
@@ -1737,7 +1781,7 @@
                 <p>Durgakund Varanasi, UP, India</p>
             </div>
         </div>
-       <div class="text-center" style="margin-top: 50px; border-top: 1px solid #333; padding-top: 20px; font-size: 13px; color: #777;">
+        <div class="text-center" style="margin-top: 50px; border-top: 1px solid #333; padding-top: 20px; font-size: 13px; color: #777;">
             © 2026 OneX Media |Durgakund Varanasi, UP, India
             <br>
              Digital Marketing Agency
