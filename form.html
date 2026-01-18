@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneX Media</title>
+    
+    <link rel="icon" type="image/jpeg" href="newlogo.jpeg">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS STYLES */
+        :root {
+            --primary: #6a35c9;
+            --secondary: #a582e6;
+            --bg-start: #f8f4ff;
+            --bg-end: #eadaff;
+            --text-main: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(106, 53, 201, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Increased gap slightly for the image */
+        }
+        
+        /* New Logo Style */
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain; /* Ensures logo isn't stretched */
+        }
+
+        .header h2 { color: var(--primary); font-size: 1.2rem; }
+        .header p { font-size: 0.7rem; color: #ff6b6b; font-weight: bold; }
+
+        /* Steps */
+        .step { display: none; padding: 20px; animation: fadeUp 0.4s; }
+        .step.active { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Calendar Styles */
+        .cal-header { text-align: center; margin-bottom: 15px; font-weight: bold; color: var(--text-main); }
+        
+        .date-strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: none;
+        }
+        .date-strip::-webkit-scrollbar { display: none; }
+
+        .date-box {
+            min-width: 50px;
+            height: 60px;
+            background: #f4f4f4;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+        .date-box span { font-size: 0.7rem; color: #777; }
+        .date-box b { font-size: 1.1rem; }
+        
+        .date-box.selected {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 10px rgba(106, 53, 201, 0.3);
+        }
+        .date-box.selected span { color: #eadaff; }
+
+        /* Time Slots */
+        .time-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .time-btn {
+            padding: 10px;
+            border: 1px solid var(--secondary);
+            background: white;
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+        }
+        .time-btn:hover { background: #f3f0ff; }
+        .time-btn.selected { background: var(--primary); color: white; }
+
+        /* Form Fields */
+        .form-group { margin-bottom: 15px; }
+        .label { font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; display: block; }
+        .input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        .input:focus { border-color: var(--primary); outline: none; }
+
+        /* Dropdown Fix */
+        select.input {
+            background: white;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:disabled { background: #ccc; cursor: not-allowed; }
+        .btn-loading { opacity: 0.7; pointer-events: none; }
+
+        /* Confirmation */
+        .success-box { text-align: center; padding: 20px 0; }
+        .success-icon { font-size: 4rem; color: var(--primary); margin-bottom: 15px; }
+        .details-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            margin-top: 20px;
+            border-left: 4px solid var(--primary);
+        }
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="newlogo.jpeg" alt="OneX Media" class="logo-img">
+        <div>
+            <h2>OneX Media</h2>
+        </div>
+    </div>
+
+    <div id="step1" class="step active">
+        <div class="cal-header" id="currentMonth">Month Year</div>
+        
+        <div class="date-strip" id="dateContainer">
+            </div>
+
+        <div class="time-grid" id="timeContainer">
+            <div class="time-btn" onclick="selectTime(this, '11:00 AM')">11:00 AM</div>
+            <div class="time-btn" onclick="selectTime(this, '12:00 PM')">12:00 PM</div>
+            <div class="time-btn" onclick="selectTime(this, '02:00 PM')">02:00 PM</div>
+            <div class="time-btn" onclick="selectTime(this, '04:00 PM')">04:00 PM</div>
+        </div>
+
+        <button id="nextBtn" class="btn" disabled onclick="goToStep2()">Continue</button>
+        
+        <div style="margin-top:20px; display:flex; gap:10px; align-items:center; border-top:1px solid #eee; padding-top:10px;">
+    <div style="width:40px; height:40px; background:#ddd; border-radius:50%; background-size:cover; background-image: url('newlogo.jpeg');"></div>
+    <div style="font-size:0.8rem; color:#666;">
+        <b>Meet Team</b><br>Your Digital Marketing Expert
+    </div>
+</div>
+    </div>
+
+    <div id="step2" class="step">
+        <h3>Enter Details</h3>
+        <p style="color:#666; font-size:0.9rem; margin-bottom:15px;">
+            <i class="far fa-calendar"></i> <span id="summaryDate"></span> at <span id="summaryTime"></span>
+        </p>
+
+        <form id="bookingForm" onsubmit="sendEmails(event)">
+            <div class="form-group">
+                <label class="label">Full Name</label>
+                <input type="text" id="name" class="input" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label class="label">Email Address</label>
+                <input type="email" id="email" class="input" placeholder="you@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label class="label">Phone Number</label>
+                <input type="tel" id="phone" class="input" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+                <label class="label">Business Type</label>
+                <select id="business" class="input">
+                    <option>Personal Brand</option>
+                    <option>E-commerce</option>
+                    <option>Agency</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="label">Your Goal</label>
+                <select id="goal" class="input">
+                    <option>Get More Leads</option>
+                    <option>Increase Sales</option>
+                    <option>Branding</option>
+                </select>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn">Schedule Event</button>
+        </form>
+        <button onclick="goToStep1()" style="background:none; border:none; color:#666; width:100%; margin-top:10px; cursor:pointer;">Back</button>
+    </div>
+
+    <div id="step3" class="step">
+        <div class="success-box">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>You're Scheduled!</h2>
+            <p style="color:#666; font-size:0.9rem;">A confirmation email has been sent to <b id="confirmEmail"></b></p>
+            
+            <div class="details-box">
+                <div class="detail-row"><span>Date:</span> <b id="finalDate"></b></div>
+                <div class="detail-row"><span>Time:</span> <b id="finalTime"></b></div>
+                <div class="detail-row"><span>With:</span> <b>Mike (OneX Media)</b></div>
+            </div>
+
+            <button onclick="location.reload()" class="btn" style="background:none; border:1px solid var(--primary); color:var(--primary); margin-top:20px;">Book Another</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ==========================================
+    // ⚠️ EMAILJS CONFIGURATION ⚠️
+    // ==========================================
+    const SERVICE_ID = "service_phbqu7o";
+    const PUBLIC_KEY = "pymQnC6m3nTVsEyZU";
+    
+    const TEMPLATE_ID_CLIENT = "template_atjj5yk"; 
+    const TEMPLATE_ID_ADMIN  = "template_4sgpd5t"; 
+    // ==========================================
+
+    (function() {
+        if(PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+            emailjs.init(PUBLIC_KEY);
+        }
+    })();
+
+    let selectedDate = new Date();
+    let selectedTimeStr = "";
+    
+    window.onload = function() {
+        const container = document.getElementById('dateContainer');
+        const monthLabel = document.getElementById('currentMonth');
+        const today = new Date();
+        monthLabel.innerText = today.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+        for(let i=0; i<7; i++) {
+            let d = new Date();
+            d.setDate(today.getDate() + i);
+            let dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
+            let dayNum = d.getDate();
+            
+            let el = document.createElement('div');
+            el.className = `date-box ${i === 0 ? 'selected' : ''}`;
+            el.innerHTML = `<span>${dayName}</span><b>${dayNum}</b>`;
+            el.onclick = () => {
+                document.querySelectorAll('.date-box').forEach(b => b.classList.remove('selected'));
+                el.classList.add('selected');
+                selectedDate = d;
+            };
+            container.appendChild(el);
+        }
+    };
+
+    function selectTime(el, time) {
+        document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+        el.classList.add('selected');
+        selectedTimeStr = time;
+        document.getElementById('nextBtn').disabled = false;
+    }
+
+    function goToStep2() {
+        let dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+        document.getElementById('summaryDate').innerText = dateStr;
+        document.getElementById('summaryTime').innerText = selectedTimeStr;
+        document.getElementById('finalDate').innerText = dateStr;
+        document.getElementById('finalTime').innerText = selectedTimeStr;
+        document.getElementById('step1').classList.remove('active');
+        document.getElementById('step2').classList.add('active');
+    }
+
+    function goToStep1() {
+        document.getElementById('step2').classList.remove('active');
+        document.getElementById('step1').classList.add('active');
+    }
+
+    function sendEmails(e) {
+        e.preventDefault();
+        
+        if (PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+            alert("⚠️ Please add your EmailJS Public Key.");
+            return;
+        }
+
+        const btn = document.getElementById('submitBtn');
+        btn.innerText = "Booking...";
+        btn.classList.add('btn-loading');
+
+        const formData = {
+            name: document.getElementById('name').value,
+            user_email: document.getElementById('email').value,  
+            phone: document.getElementById('phone').value,
+            business: document.getElementById('business').value,
+            goal: document.getElementById('goal').value,
+            date: selectedDate.toDateString(),
+            time: selectedTimeStr
+        };
+
+        document.getElementById('confirmEmail').innerText = formData.user_email;
+
+        const sendToClient = emailjs.send(SERVICE_ID, TEMPLATE_ID_CLIENT, formData);
+        const sendToAdmin = emailjs.send(SERVICE_ID, TEMPLATE_ID_ADMIN, formData);
+
+        Promise.all([sendToClient, sendToAdmin])
+            .then(() => {
+                console.log("Both Emails Sent Successfully");
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step3').classList.add('active');
+            })
+            .catch((error) => {
+                console.error("Email Failed:", error);
+                alert("Email failed to send.");
+                btn.innerText = "Schedule Event";
+                btn.classList.remove('btn-loading');
+            });
+    }
+</script>
+
+</body>
+</html>
