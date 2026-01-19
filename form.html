@@ -28,11 +28,14 @@
             background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
             min-height: 100vh;
             display: flex;
+            flex-direction: column; /* Stacks the card and marquee vertically */
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
+            gap: 50px; /* Space between the Card and the Marquee */
         }
 
+        /* --- Main Booking Card --- */
         .container {
             background: rgba(255, 255, 255, 0.95);
             width: 100%;
@@ -41,6 +44,7 @@
             box-shadow: 0 10px 30px rgba(106, 53, 201, 0.15);
             overflow: hidden;
             position: relative;
+            z-index: 2;
         }
 
         /* Header */
@@ -49,14 +53,13 @@
             border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
-            gap: 15px; /* Increased gap slightly for the image */
+            gap: 15px;
         }
         
-        /* New Logo Style */
         .logo-img {
             width: 50px;
             height: 50px;
-            object-fit: contain; /* Ensures logo isn't stretched */
+            object-fit: contain;
         }
 
         .header h2 { color: var(--primary); font-size: 1.2rem; }
@@ -134,11 +137,7 @@
         }
         .input:focus { border-color: var(--primary); outline: none; }
 
-        /* Dropdown Fix */
-        select.input {
-            background: white;
-            cursor: pointer;
-        }
+        select.input { background: white; cursor: pointer; }
 
         /* Buttons */
         .btn {
@@ -168,6 +167,91 @@
             border-left: 4px solid var(--primary);
         }
         .detail-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; }
+
+        /* ========================================= */
+        /* NEW SECTION: TECH STACK MARQUEE STYLES   */
+        /* ========================================= */
+        .tech-stack-section {
+            width: 100%;
+            max-width: 800px; 
+            text-align: center;
+            background: rgba(255, 255, 255, 0.4); 
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .stack-container {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            opacity: 0.8;
+        }
+
+        /* Marquee Wrapper */
+        .marquee-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        /* Track */
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 40px;
+            animation: scroll 20s linear infinite;
+        }
+
+        .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .client-group {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* --- LOGO STYLING --- */
+        .client-item img {
+            height: 40px; 
+            width: auto;
+            object-fit: contain;
+            /* REMOVED GRAYSCALE FILTER */
+            opacity: 1; 
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .client-item img:hover {
+            transform: scale(1.1); /* Only zoom on hover, no color change needed */
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Mobile Adjustments for Marquee */
+        @media (max-width: 480px) {
+            .client-item img { height: 30px; }
+            .tech-stack-section { padding: 20px 10px; width: 95%; }
+        }
+
     </style>
 </head>
 <body>
@@ -260,6 +344,38 @@
         </div>
     </div>
 </div>
+
+<section class="tech-stack-section">
+    <div class="stack-container">
+        <h2 class="section-title">Our Technology & Marketing Stack</h2>
+        <p class="section-subtitle">Powering brands with the world's best tools</p>
+    </div>
+
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            <div class="client-group">
+                <div class="client-item"><img src="1logo-removebg-preview.png" alt="OnexMedia"></div>
+                <div class="client-item"><img src="2logo-removebg-preview.png" alt="Apple"></div>
+                <div class="client-item"><img src="3logo-removebg-preview.png" alt="Amazon"></div>
+                <div class="client-item"><img src="4logo-removebg-preview.png" alt="Microsoft"></div>
+                <div class="client-item"><img src="5logo-removebg-preview.png" alt="Tool 5"></div>
+                 <div class="client-item"><img src="6logo-removebg-preview.png" alt="Amazon"></div>
+                <div class="client-item"><img src="8logo-removebg-preview.png" alt="Tool 5"></div>
+                 <div class="client-item"><img src="9logo-removebg-preview.png" alt="Amazon"></div>
+                <div class="client-item"><img src="10logo-removebg-preview.png" alt="Microsoft"></div>
+            </div>
+             <div class="client-item"><img src="1logo-removebg-preview.png" alt="OnexMedia"></div>
+                <div class="client-item"><img src="2logo-removebg-preview.png" alt="Apple"></div>
+                <div class="client-item"><img src="3logo-removebg-preview.png" alt="Amazon"></div>
+                <div class="client-item"><img src="4logo-removebg-preview.png" alt="Microsoft"></div>
+                <div class="client-item"><img src="5logo-removebg-preview.png" alt="Tool 5"></div>
+                 <div class="client-item"><img src="6logo-removebg-preview.png" alt="Amazon"></div>
+                <div class="client-item"><img src="8logo-removebg-preview.png" alt="Tool 5"></div>
+                 <div class="client-item"><img src="9logo-removebg-preview.png" alt="Amazon"></div>
+                <div class="client-item"><img src="10logo-removebg-preview.png" alt="Microsoft"></div>
+        </div>
+    </div>
+</section>
 
 <script>
     // ==========================================
