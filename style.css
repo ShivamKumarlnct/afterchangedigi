@@ -27,7 +27,10 @@ body {
     background-color: transparent; 
     overflow-x: hidden;
 }
-
+.text-center { text-align: center;
+    padding-top: 40px;
+    color: var(--brand-purple);
+ }
 /* ------------------------------------------------------- */
 /* NEW: 3D CANVAS CONTAINER STYLE                          */
 /* ------------------------------------------------------- */
@@ -317,7 +320,7 @@ header {
     background: linear-gradient(90deg, var(--brand-purple), #8e44ad); 
     color: rgb(248, 244, 244); 
     padding: 20px 0; 
-    margin-top: 50px; 
+    /* margin-top: 50px;  */
     box-shadow:0 10px 30px rgba(93, 46, 142, 0.3);
 }
 .stats-grid { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 20px; }
