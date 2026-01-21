@@ -367,7 +367,7 @@ header {
     width: auto;
     /* This ensures a box appears even if image is broken */
     min-width: 40px; 
-    background: #ddd; 
+    /* background: #ddd;  */
     border-radius: 5px;
     object-fit: contain;
 }
