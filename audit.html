@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Influencer Marketing | Free Audit</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">    
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary-green: #9468ce; /* Button Green */
+            --dark-green: #958fce;
+            --bg-gradient: linear-gradient(135deg, #eef7ff 0%, #e0f2f1 100%);
+            --text-main: #0d1b2a;
+            --text-sub: #455a64;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND DECORATION (Clouds/Blur) --- */
+        body::before {
+            content: ''; position: absolute; top: -100px; left: -100px;
+            width: 400px; height: 400px; background: rgba(41, 121, 255, 0.1);
+            border-radius: 50%; filter: blur(80px); z-index: -1;
+        }
+        body::after {
+            content: ''; position: absolute; bottom: 0; right: 0;
+            width: 500px; height: 500px; background: rgba(38, 166, 154, 0.1);
+            border-radius: 50%; filter: blur(80px); z-index: -1;
+        }
+
+        /* --- MAIN CONTAINER (Split Layout) --- */
+        .main-container {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+        }
+
+        /* --- LEFT COLUMN: CONTENT --- */
+        .content-side { padding-right: 20px; }
+
+        .badge-free {
+            background: var(--primary-green);
+            color: white;
+            padding: 5px 15px;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 4px; /* Tag shape */
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%);
+            padding-right: 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        h1 span { color: var(--primary-green); }
+
+        .sub-text { font-size: 16px; color: var(--text-sub); margin-bottom: 25px; line-height: 1.6; }
+
+        /* Checklist */
+        .checklist { margin-bottom: 30px; }
+        .check-item { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 500; margin-bottom: 12px; color: #333; }
+        .check-box { 
+            width: 22px; height: 22px; 
+            background: var(--primary-green); 
+            color: white; border-radius: 4px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 12px;
+        }
+
+        /* Social Icons Row */
+        .social-row { display: flex; gap: 15px; margin-bottom: 40px; }
+        .social-tile {
+            width: 50px; height: 50px; background: white;
+            border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; transition: transform 0.3s;
+        }
+        .social-tile:hover { transform: translateY(-5px); }
+        .fa-instagram { color: #E1306C; }
+        .fa-youtube { color: #FF0000; }
+        .fa-tiktok { color: #000000; }
+        
+        /* Stats & Graph Area */
+        .stats-area {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 20px;
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+        .stat-text h4 { font-size: 18px; font-weight: 700; color: #333; }
+        .stat-text p { font-size: 13px; color: #666; }
+        
+        /* CSS Bar Graph visualization */
+        .graph-visual { display: flex; align-items: flex-end; gap: 6px; height: 60px; }
+        .bar { width: 12px; background: linear-gradient(to top, #4fc3f7, #0288d1); border-radius: 3px 3px 0 0; }
+        .bar:nth-child(1) { height: 40%; background: #90caf9; }
+        .bar:nth-child(2) { height: 60%; background: #42a5f5; }
+        .bar:nth-child(3) { height: 80%; background: #1e88e5; }
+        .bar:nth-child(4) { height: 100%; background: #ffca28; /* Gold bar */ box-shadow: 0 0 10px rgba(255, 202, 40, 0.5); }
+
+
+        /* --- RIGHT COLUMN: FORM --- */
+        .form-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,1);
+        }
+
+        .form-lock-header {
+            background: #f5f5f5;
+            padding: 12px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .form-lock-header i { color: #777; }
+
+        .form-body { padding: 30px; }
+
+        .form-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .input-group { margin-bottom: 15px; position: relative; }
+        
+        .input-field {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9f9f9;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            transition: 0.3s;
+        }
+        .input-field:focus {
+            background: #fff;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+        }
+
+        /* Phone Input Styling with Fake Flag */
+        .phone-wrapper { position: relative; }
+        .phone-flag {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            border-right: 1px solid #ccc;
+            padding-right: 8px;
+            height: 60%;
+        }
+        .phone-wrapper input { padding-left: 80px; }
+
+        /* Button */
+        .cta-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--dark-green);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.3);
+            transition: 0.3s;
+        }
+        .cta-btn:hover { background: #7373ae; transform: translateY(-2px); }
+
+        .disclaimer {
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        /* Status Messages */
+        #statusMessage {
+            margin-top: 15px; padding: 10px; border-radius: 6px;
+            font-size: 13px; text-align: center; display: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .main-container { grid-template-columns: 1fr; gap: 30px; }
+            .content-side { text-align: center; padding-right: 0; }
+            .checklist { display: inline-block; text-align: left; }
+            .social-row { justify-content: center; }
+            .stats-area { justify-content: center; }
+            body { padding: 10px; align-items: flex-start; }
+            
+            h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <div class="content-side">
+            <div class="badge-free">✔ Start Free</div>
+            
+            <h1>Start Influencer<br>Marketing for <span>FREE</span></h1>
+            
+            <p class="sub-text">
+                Find the right influencers for your brand.<br>
+                No payment required to start.
+            </p>
+
+            <div class="checklist">
+                <div class="check-item">
+                    <div class="check-box"><i class="fas fa-check"></i></div>
+                    Boost Reach & Trust
+                </div>
+                <div class="check-item">
+                    <div class="check-box"><i class="fas fa-check"></i></div>
+                    Instagram, YouTube & Reels
+                </div>
+                <div class="check-item">
+                    <div class="check-box"><i class="fas fa-check"></i></div>
+                    Vetted Content Creators
+                </div>
+            </div>
+
+            <div class="social-row">
+                <div class="social-tile"><i class="fab fa-instagram"></i></div>
+                <div class="social-tile"><i class="fab fa-youtube"></i></div>
+                <div class="social-tile"><i class="fab fa-tiktok"></i></div>
+            </div>
+
+            <div class="stats-area">
+                <div class="graph-visual">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="stat-text">
+                    <h4>500+ Campaigns</h4>
+                    <p>90% Client Success</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-wrapper">
+            <div class="form-lock-header">
+                <i class="fas fa-lock"></i> 100% Free to Start | No Credit Card Required
+            </div>
+
+            <div class="form-body">
+                <h3 class="form-title">Get Influencers for Your Brand in 7 Days</h3>
+
+                <form id="auditForm">
+                    <input type="hidden" name="_subject" value="New Influencer Request">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div class="input-group">
+                        <input type="text" name="full_name" class="input-field" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="input-group phone-wrapper">
+                        <div class="phone-flag">
+                            <img src="https://flagcdn.com/w20/in.png" alt="IN"> +91
+                        </div>
+                        <input type="tel" name="phone" class="input-field" placeholder="98765 43210" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" name="brand_link" class="input-field" placeholder="Brand / Instagram Page Link">
+                    </div>
+
+                    <div class="input-group">
+                        <select name="goal" class="input-field" required>
+                            <option value="" disabled selected>Campaign Goal</option>
+                            <option value="Awareness">Brand Awareness</option>
+                            <option value="Sales">Drive Sales</option>
+                            <option value="Content">UGC Content</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <select name="budget" class="input-field">
+                            <option value="" disabled selected>Budget Range</option>
+                            <option value="Low">Under ₹10k</option>
+                            <option value="Medium">₹10k - ₹50k</option>
+                            <option value="High">₹50k+</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="cta-btn" id="submitBtn">Start Free Influencer Plan</button>
+                </form>
+
+                <div id="statusMessage"></div>
+
+                <p class="disclaimer">
+                    * This is not an automated tool. Our team personally reviews every request.
+                </p>
+                
+                <div style="text-align:center; margin-top:20px; color:#ccc; font-size:20px; display:flex; justify-content:center; gap:15px;">
+                    <i class="fab fa-instagram" style="color:#E1306C"></i>
+                    <i class="fab fa-youtube" style="color:#FF0000"></i>
+                    <i class="fab fa-tiktok" style="color:#000"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById('auditForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMessage = document.getElementById('statusMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Loading State
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Processing...";
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.7";
+            statusMessage.style.display = "none";
+
+            const formData = new FormData(form);
+
+            // Using the same endpoint as your previous code
+            fetch("https://formsubmit.co/ajax/onexmedia.net@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                form.reset();
+                submitBtn.innerText = "Request Sent!";
+                submitBtn.style.background = "#4caf50";
+                
+                statusMessage.innerHTML = "✅ <b>Success!</b> We will contact you shortly.";
+                statusMessage.style.background = "#e8f5e9";
+                statusMessage.style.color = "#2e7d32";
+                statusMessage.style.display = "block";
+
+                setTimeout(() => {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                    submitBtn.style.background = ""; 
+                    statusMessage.style.display = "none";
+                }, 5000);
+            })
+            .catch(error => {
+                submitBtn.innerText = "Try Again";
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
+                
+                statusMessage.innerText = "❌ Network Error. Please try again.";
+                statusMessage.style.background = "#ffebee";
+                statusMessage.style.color = "#c62828";
+                statusMessage.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
